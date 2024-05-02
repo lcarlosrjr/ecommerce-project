@@ -1,6 +1,6 @@
-package com.ecommerce.authservice.authservice.service;
+package com.ecommerce.authservice.service;
 
-import com.ecommerce.authservice.authservice.model.UserInfo;
+import com.ecommerce.authservice.model.UserInfo;
 
 public interface UserService {
 

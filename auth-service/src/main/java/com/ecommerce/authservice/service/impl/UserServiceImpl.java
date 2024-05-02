@@ -1,8 +1,8 @@
-package com.ecommerce.authservice.authservice.service.impl;
+package com.ecommerce.authservice.service.impl;
 
-import com.ecommerce.authservice.authservice.model.UserInfo;
-import com.ecommerce.authservice.authservice.repository.UserRepository;
-import com.ecommerce.authservice.authservice.service.UserService;
+import com.ecommerce.authservice.model.UserInfo;
+import com.ecommerce.authservice.repository.UserRepository;
+import com.ecommerce.authservice.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;

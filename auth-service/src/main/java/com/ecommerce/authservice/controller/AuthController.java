@@ -1,7 +1,7 @@
-package com.ecommerce.authservice.authservice.controller;
+package com.ecommerce.authservice.controller;
 
-import com.ecommerce.authservice.authservice.model.UserInfo;
-import com.ecommerce.authservice.authservice.service.UserService;
+import com.ecommerce.authservice.model.UserInfo;
+import com.ecommerce.authservice.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
