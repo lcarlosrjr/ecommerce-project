@@ -1,6 +1,6 @@
 package com.ecommerce.authservice.authservice.controller;
 
-import com.ecommerce.authservice.authservice.model.User;
+import com.ecommerce.authservice.authservice.model.UserInfo;
 import com.ecommerce.authservice.authservice.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,15 +17,18 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signUp(@RequestBody User user) {
-        userService.save(user);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<?> signUp(@RequestBody UserInfo user) {
+        if (userService.save(user) != null) {
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } else {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already in use!");
+        }
     }
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestParam String username, @RequestParam String password) {
         if (userService.authenticate(username, password)) {
-            User user = userService.findByUsername(username);
+            UserInfo user = userService.findByUsername(username);
             String token = userService.generateToken(user);
             return ResponseEntity.ok(token);
         } else {
